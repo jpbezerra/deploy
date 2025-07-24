@@ -21,7 +21,7 @@ app = FastAPI(lifespan=lifespan) # Define a API de forma completa
 def ler_raiz():
     return {"Olá": "Bem-vindo à API de Livros!"}
 
-@app.get("/health")
+@app.api_route("/health", methods=["GET", "HEAD"], status_code=status.HTTP_200_OK)
 async def health_check():
     return {"status": "ok", "message": "Backend is alive!"}
 
